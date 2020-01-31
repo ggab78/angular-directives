@@ -37,6 +37,10 @@
 
       <p appBasicHighLight>Style with BasicHighlight Directive</p>
       <p appBetterHighlight [defaultColor]="'yellow'" [highLightColor]="'red'">Style with BetterHighlight Directive</p>
+      <div [ngSwitch]="value">
+        <p *ngSwitchCase="10">value is 10</p>
+        <p *ngSwitchCase="100">value is 100</p>
+      </div>
     </div>
   </div>
 </div>
