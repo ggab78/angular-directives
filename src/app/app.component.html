@@ -19,10 +19,22 @@
               [ngStyle]="{backgroundColor: even % 2 === 0 ? 'gray' : 'transparent'}"
               *ngFor="let even of evenNumbers">{{even}}</li>
         </div>
+        <ng-template [ngIf]="!onlyOdd">
+          <div>
+            <li class="list-group-item"
+                [ngClass]="{'text-danger': even % 2 ===0}"
+                [ngStyle]="{backgroundColor: even % 2 === 0 ? 'gray' : 'transparent'}"
+                *ngFor="let even of evenNumbers">{{even}}</li>
+          </div>
+        </ng-template>
+        <div *appUnless="onlyOdd">
+          <li class="list-group-item"
+              [ngClass]="{'text-danger': even % 2 ===0}"
+              [ngStyle]="{backgroundColor: even % 2 === 0 ? 'gray' : 'transparent'}"
+              *ngFor="let even of evenNumbers">{{even}}</li>
+        </div>
       </ul>
-      <ng-template [ngIf]="onlyOdd">
-        <p>Only odd</p>
-      </ng-template>
+
       <p appBasicHighLight>Style with BasicHighlight Directive</p>
       <p appBetterHighlight [defaultColor]="'yellow'" [highLightColor]="'red'">Style with BetterHighlight Directive</p>
     </div>
